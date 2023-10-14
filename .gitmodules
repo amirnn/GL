@@ -1,0 +1,10 @@
+[submodule "modules/glfw"]
+	path = modules/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "modules/eigen"]
+	path = modules/eigen
+	url = https://gitlab.com/libeigen/eigen.git
+[submodule "modules/glad"]
+	path = modules/glad
+	url = https://github.com/Dav1dde/glad
+    branch = glad2

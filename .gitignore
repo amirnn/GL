@@ -1,0 +1,13 @@
+# platform
+.DS_Store
+
+# build
+/build
+/out
+.cache
+
+#cmake
+compile_commands.json
+
+#python venv
+.venv
