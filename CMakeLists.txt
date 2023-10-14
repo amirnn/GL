@@ -19,18 +19,23 @@ set(SHOULD_BUILD_GLFW OFF)
 
 add_subdirectory(modules)
 
-add_executable(main src/main.cpp)
+add_executable(
+    GLApp 
+    src/GLApp.cpp
+    src/Window/Window.cpp
+)
 
 find_library(glfw_lib glfw3 ${CMAKE_SOURCE_DIR}/lib/lib)
 
 target_include_directories(
-    main PUBLIC
+    GLApp PUBLIC
     lib/include
     lib/glad/include
+    src/include
 )
 
 target_link_libraries(
-    main PUBLIC
+    GLApp PUBLIC
     ${glfw_lib}
     ${glad_lib}
 )

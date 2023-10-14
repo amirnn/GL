@@ -11,5 +11,13 @@
 
 int main(){
 
+    glfwInit();
+
+    // Register Callbacks
+
+    while(true){
+
+    }
+
     return  EXIT_SUCCESS;
 }
