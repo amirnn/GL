@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <memory>
+#include <utility>
 
 // GLAD
 #define GLAD_GL_IMPLEMENTATION
@@ -19,17 +20,20 @@ class GLApplication: public Application{
     public:
     GLApplication(Pair<uint, uint> size, String const& title):
     m_size{size},
-    m_title{title},
-    m_window{size.first, size.second,m_title,true}
-    {}
+    m_title{title}
+    {   
+        // Inits GLFW
+        Init();
+        m_window.reset( new GLWindow{m_size.first, m_size.second, m_title, true});
+    }
 
-    void Init() override {}
-    void MainLoop() override {}
-    void Terminate() override {}
+    void Init() override;
+    void MainLoop() override;
+    void Terminate() override;
 
     private:
     Pair<uint, uint> m_size;
-    GLWindow m_window;
+    UPointerT<GLWindow> m_window{};
     String m_title;
 
 };

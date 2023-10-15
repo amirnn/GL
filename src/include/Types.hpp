@@ -10,8 +10,8 @@ using String = std::string;
 template< typename T, typename U>
 using Pair = std::pair<T, U>;
 
-// template< typename T>
-// using UPointer = std::unique_ptr<T>;
+template< typename T>
+using UPointerT = std::unique_ptr<T>;
 
-template< typename T, typename U>
-using UPointer = std::unique_ptr<T, U>;
+template< typename T, typename D>
+using UPointerTD = std::unique_ptr<T, D>;

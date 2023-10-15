@@ -5,6 +5,7 @@ find_package(Eigen3 PATHS ${CMAKE_SOURCE_DIR}/build/lib/share/eigen3/cmake REQUI
 
 add_executable(
         main
+        ${CMAKE_SOURCE_DIR}/build/lib/glad/src/gl.c
         Window/Window.cpp
         Window/GLWindow.cpp
         Application/Application.cpp

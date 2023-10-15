@@ -6,14 +6,15 @@
 #include <stdexcept>
 #include <utility>
 
-#include <GLFW/glfw3.h>
-
 #include "Types.hpp"
 
 class Window {
 public:
+  Window(uint width, uint height, String &title, bool is_root)
+      : m_width{width}, m_height{height}, m_title{title}, m_is_root{is_root} {}
 
-    Window(uint width, uint height, String &title, bool is_root):m_width{width}, m_height{height}, m_title{title}, m_is_root{is_root}{}
+  virtual ~Window() = default;
+  
   virtual bool ShouldClose() const = 0;
   Pair<uint, uint> GetSize() const { return {m_width, m_height}; }
 
