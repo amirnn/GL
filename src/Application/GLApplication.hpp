@@ -1,3 +1,5 @@
+#pragma once
+
 #include <cstdlib>
 #include <iostream>
 #include <memory>
@@ -9,12 +11,13 @@
 // GLFW (include after glad)
 #include <GLFW/glfw3.h>
 
-#include "Window/Window.hpp"
-#include "Application/Application.hpp"
+#include "Window/GLWindow.hpp"
+#include "Application.hpp"
+#include "Types.hpp"
 
-class GLApp: public Application{
+class GLApplication: public Application{
     public:
-    GLApp(Pair<uint, uint> size, String const& title):
+    GLApplication(Pair<uint, uint> size, String const& title):
     m_size{size},
     m_title{title},
     m_window{size.first, size.second,m_title,true}
@@ -26,13 +29,7 @@ class GLApp: public Application{
 
     private:
     Pair<uint, uint> m_size;
-    Window m_window;
+    GLWindow m_window;
     String m_title;
 
 };
-
-int main(){
-    GLApp glapp{{640, 480},"Hello There"};
-    glapp.Run();
-    return  EXIT_SUCCESS;
-}
