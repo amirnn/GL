@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.26.5)
+cmake_minimum_required(VERSION 3.26.4)
 project(GL LANGUAGES C CXX)
 
 
@@ -8,34 +8,21 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Install folder
-set(GG_LOCATION ${CMAKE_SOURCE_DIR}/lib/glad)
-set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/lib)
-# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/build)
+#set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/lib)
 
 # To build and install module
-set(SHOULD_BUILD OFF)
+set(SHOULD_BUILD_DEPS OFF)
 set(SHOULD_BUILD_EIGEN OFF)
 set(SHOULD_BUILD_GLFW OFF)
 
+# Turn off the generation of the test targets
+set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1)
+
+# Out put dir for glad
+set(GLAD_OUT_DIR ${CMAKE_SOURCE_DIR}/build/lib/glad)
+
 add_subdirectory(modules)
 
-add_executable(
-    GLApp 
-    src/GLApp.cpp
-    src/Window/Window.cpp
-)
-
-find_library(glfw_lib glfw3 ${CMAKE_SOURCE_DIR}/lib/lib)
-
-target_include_directories(
-    GLApp PUBLIC
-    lib/include
-    lib/glad/include
-    src/include
-)
-
-target_link_libraries(
-    GLApp PUBLIC
-    ${glfw_lib}
-    ${glad_lib}
-)
+if (NOT SHOULD_BUILD_DEPS)
+    add_subdirectory(src)
+endif ()

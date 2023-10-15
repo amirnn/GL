@@ -1,0 +1,41 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 26,
+    "patch": 4
+  },
+  "configurePresets": [
+    {
+      "name": "Base Config",
+      "displayName": "Base Config",
+      "binaryDir": "${sourceDir}/build/temp",
+      "installDir": "${sourceDir}/build/lib",
+      "generator": "Ninja"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "Debug Build",
+      "displayName": "Debug",
+      "configurePreset": "Base Config",
+      "configuration": "Debug",
+      "jobs": 4,
+      "targets": [
+        "all",
+        "install"
+      ]
+    },
+    {
+      "name": "Release Build",
+      "displayName": "Release",
+      "configurePreset": "Base Config",
+      "configuration": "Release",
+      "jobs": 4,
+      "targets": [
+        "all",
+        "install"
+      ]
+    }
+  ]
+}
