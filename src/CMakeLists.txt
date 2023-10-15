@@ -6,7 +6,7 @@ add_executable(
         Window/Window.cpp
 )
 
-find_library(glfw_lib glfw3 ${CMAKE_SOURCE_DIR}/lib/lib)
+find_library(glfw_lib glfw3 ${CMAKE_SOURCE_DIR}/build/lib/lib)
 
 target_include_directories(
         GLApp PUBLIC
