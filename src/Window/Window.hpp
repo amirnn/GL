@@ -14,18 +14,18 @@ public:
       : m_width{width}, m_height{height}, m_title{title}, m_is_root{is_root} {}
 
   virtual ~Window() = default;
-  
-  virtual bool ShouldClose() const = 0;
-  Pair<uint, uint> GetSize() const { return {m_width, m_height}; }
+
+  [[nodiscard]] virtual bool ShouldClose() const = 0;
+  [[nodiscard]] Pair<uint, uint> GetSize() const { return {m_width, m_height}; }
 
   void SetSize(Pair<uint, uint> const &size) {
     m_width = size.first;
     m_height = size.second;
   }
 
-  String GetTitle() const { return m_title; }
+  [[nodiscard]] String GetTitle() const { return m_title; }
 
-  bool IsRoot() const { return m_is_root; }
+  [[nodiscard]] bool IsRoot() const { return m_is_root; }
 
 protected:
   uint m_width;
