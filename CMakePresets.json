@@ -8,34 +8,10 @@
   "configurePresets": [
     {
       "name": "Base Config",
-      "displayName": "Base Config",
+      "displayName": "Base",
       "binaryDir": "${sourceDir}/build/temp",
       "installDir": "${sourceDir}/build/lib",
-      "generator": "Ninja"
-    }
-  ],
-  "buildPresets": [
-    {
-      "name": "Debug Build",
-      "displayName": "Debug",
-      "configurePreset": "Base Config",
-      "configuration": "Debug",
-      "jobs": 4,
-      "targets": [
-        "all",
-        "install"
-      ]
-    },
-    {
-      "name": "Release Build",
-      "displayName": "Release",
-      "configurePreset": "Base Config",
-      "configuration": "Release",
-      "jobs": 4,
-      "targets": [
-        "all",
-        "install"
-      ]
+      "generator": "Ninja Multi-Config"
     }
   ]
 }
