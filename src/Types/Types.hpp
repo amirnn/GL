@@ -24,3 +24,6 @@ using UPointerT = std::unique_ptr<T>;
 
 template<typename T, typename D>
 using UPointerTD = std::unique_ptr<T, D>;
+
+template<typename T>
+using SPointer = std::shared_ptr<T>;

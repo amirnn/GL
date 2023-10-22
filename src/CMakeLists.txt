@@ -13,6 +13,8 @@ add_executable(
         Shader/GLShader.cpp
         Shader/GLShaderProgram.cpp
         main.cpp
+        GBuffer/GBuffer.cpp
+        GBuffer/GBuffer.hpp
 )
 
 target_include_directories(

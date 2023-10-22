@@ -52,12 +52,12 @@ void GLApplication::Init()
                                                 GLShader::ShaderType::Fragment);
   m_shaderProgram = std::make_unique<GLShaderProgram>(*m_vertexShader, *m_fragmentShader);
 
-  m_verticies = {
+  m_vertices = {
       {-0.5f, -0.5f, 0.0f},
       {0.5f, -0.5f, 0.0f},
       {0.0f, 0.5f, 0.0f}
   };
-  
+
 }
 
 void GLApplication::MainLoop()

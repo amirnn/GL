@@ -25,8 +25,8 @@ class GLShaderProgram
   void ReleaseProgramResources();
 
   private:
-  uint m_id;
-  uint m_vertexShader;
-  uint m_fragmentShader;
+  uint m_id{};
+  uint m_vertexShader{};
+  uint m_fragmentShader{};
   bool m_isCompiled{};
 };

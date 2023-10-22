@@ -23,6 +23,7 @@ void GLShaderProgram::SetFragmentShader(uint fshader)
 
 void GLShaderProgram::CreateProgram()
 {
+  m_id = glCreateProgram();
   glAttachShader(m_id, m_vertexShader);
   glAttachShader(m_id, m_fragmentShader);
   glLinkProgram(m_id);
@@ -37,4 +38,6 @@ uint GLShaderProgram::GetID() const noexcept
 void GLShaderProgram::ReleaseProgramResources()
 {
   glDeleteProgram(m_id);
+  m_id = 0;
+  m_isCompiled = false;
 }

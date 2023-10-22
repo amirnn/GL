@@ -42,7 +42,7 @@ class GLApplication final : public Application
 
   private:
   Pair<uint, uint> m_size;
-  Vector<Positionf> m_verticies;
+  Vector<Positionf> m_vertices;
   UPointerT<GLShader> m_vertexShader{};
   UPointerT<GLShader> m_fragmentShader{};
   UPointerT<GLShaderProgram> m_shaderProgram{};
