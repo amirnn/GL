@@ -16,29 +16,29 @@
 #include "Types.hpp"
 #include "Window/GLWindow.hpp"
 
-class GLApplication final : public Application {
-public:
-  GLApplication(Pair<uint, uint> size, String title)
-      : m_size{size}, m_title{std::move(title)}, m_window{nullptr} {}
+class GLApplication final : public Application
+{
+  public:
+  GLApplication(Pair<uint, uint> size, String title);
 
-  ~GLApplication() final { Terminate(); }
+  ~GLApplication() final;
 
+  /**
+   * @brief Called in the constructor
+   */
   void Init() override;
   void MainLoop() override;
+  /**
+   * @brief Called in the destructor
+   */
   void Terminate() override;
 
-  static void error_callback(int error, const char *description) {
-    std::cerr << "Error: " << description << std::endl;
-  }
+  static void error_callback(int error, const char *description);
 
   static void key_callback(GLFWwindow *window, int key, int scancode,
-                           int action, int mods) {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-      glfwSetWindowShouldClose(window, GLFW_TRUE);
-    }
-  }
+                           int action, int mods);
 
-private:
+  private:
   Pair<uint, uint> m_size;
   UPointerT<GLWindow> m_window{};
   String m_title;
