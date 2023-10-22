@@ -15,6 +15,8 @@
 #include "Application.hpp"
 #include "Types.hpp"
 #include "Window/GLWindow.hpp"
+#include "Shader/GLShaderProgram.hpp"
+#include "Shader/GLShader.hpp"
 
 class GLApplication final : public Application
 {
@@ -40,6 +42,10 @@ class GLApplication final : public Application
 
   private:
   Pair<uint, uint> m_size;
+  Vector<Positionf> m_verticies;
+  UPointerT<GLShader> m_vertexShader{};
+  UPointerT<GLShader> m_fragmentShader{};
+  UPointerT<GLShaderProgram> m_shaderProgram{};
   UPointerT<GLWindow> m_window{};
   String m_title;
 };

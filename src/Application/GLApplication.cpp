@@ -1,7 +1,7 @@
 #include "GLApplication.hpp"
 
-GLApplication::GLApplication(Pair<uint, uint> size, String title)
-    : m_size{size}, m_title{std::move(title)}, m_window{nullptr}
+GLApplication::GLApplication(Pair<uint, uint> size, String title) : m_size{size}, m_title{std::move(title)},
+                                                                    m_window{nullptr}
 {
   /**
    * @brief Since we are in a final class
@@ -33,8 +33,7 @@ void GLApplication::Init()
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
   #endif
 
-  m_window =
-      std::make_unique<GLWindow>(m_size.first, m_size.second, m_title);
+  m_window = std::make_unique<GLWindow>(m_size.first, m_size.second, m_title);
   if (m_window->IsRoot())
   {
     /* Make the window's context current */
@@ -47,6 +46,18 @@ void GLApplication::Init()
   }
   // Set callbacks
   glfwSetKeyCallback(m_window->GetPointer(), key_callback);
+  m_vertexShader = std::make_unique<GLShader>("/Users/amirnourinia/Developer/cpp/GL/src/Shaders/VertexShader.glsl",
+                                              GLShader::ShaderType::Vertex);
+  m_fragmentShader = std::make_unique<GLShader>("/Users/amirnourinia/Developer/cpp/GL/src/Shaders/FragmentShader.glsl",
+                                                GLShader::ShaderType::Fragment);
+  m_shaderProgram = std::make_unique<GLShaderProgram>(*m_vertexShader, *m_fragmentShader);
+
+  m_verticies = {
+      {-0.5f, -0.5f, 0.0f},
+      {0.5f, -0.5f, 0.0f},
+      {0.0f, 0.5f, 0.0f}
+  };
+  
 }
 
 void GLApplication::MainLoop()
