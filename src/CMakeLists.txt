@@ -10,6 +10,8 @@ add_executable(
         Window/GLWindow.cpp
         Application/Application.cpp
         Application/GLApplication.cpp
+        Shader/GLShader.cpp
+        Shader/GLShaderProgram.cpp
         main.cpp
 )
 
@@ -18,7 +20,8 @@ target_include_directories(
         ${CMAKE_SOURCE_DIR}/build/lib/include
         ${CMAKE_SOURCE_DIR}/build/lib/glad/include
         ${CMAKE_SOURCE_DIR}/src
-        ${CMAKE_SOURCE_DIR}/src/include
+        ${CMAKE_SOURCE_DIR}/src/Types
+        ${CMAKE_SOURCE_DIR}/src/Shaders
 )
 
 target_link_libraries(
